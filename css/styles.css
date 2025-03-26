@@ -241,18 +241,7 @@
   z-index: 3; /* Aseguramos que los puntos estén por encima del texto */
 }
 
-.dot {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.dot.active {
-  background-color: #FFD700; /* Amarillo brillante */
-}
 
 
 
