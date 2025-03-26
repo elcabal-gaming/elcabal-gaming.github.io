@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortnite Menu</title>
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+  <div class="menu">
+    <!-- Left Section -->
+    <div class="left-section">
+      <img src="images/icono.png" alt="Epic Games Logo" class="epic-games-logo">
+      <span class="fortnite-text">ELCABAL</span>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <button class="install-button">Install</button>
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú desplegable -->
+  <div class="dropdown-menu">
+    <ul>
+      <li><a href="#para-ti">Para ti</a></li>
+      <li><a href="#rotaciones">Rotaciones</a></li>
+      <li><a href="#heroes">Heroes</a></li>
+      <li><a href="#items">Items</a></li>
+      <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+    </ul>
+  </div>
+
+  <!-- Sub-menú -->
+  <div class="submenu">
+    <ul class="submenu-list">
+      <li class="submenu-item active"><a href="#para-ti">Para ti</a></li>
+      <li class="submenu-item"><a href="#rotaciones">Rotaciones</a></li>
+      <li class="submenu-item"><a href="#heroes">Heroes</a></li>
+      <li class="submenu-item"><a href="#items">Items</a></li>
+      <li class="submenu-item"><a href="#sobre-nosotros">Sobre nosotros</a></li>
+    </ul>
+  </div>
+<!-- Sección de Slides -->
+<div id="para-ti" class="image-slider">
+  <div class="slides">
+    <!-- Slide 1 -->
+    <a href="https://ejemplo.com/rotacion-con-yu-zhing" class="slide-link" target="_blank">
+      <div class="slide active">
+        <img src="images/post1.jpeg" alt="Slide 1">
+      </div>
+    </a>
+
+    <!-- Slide 2 -->
+    <a href="https://ejemplo.com/aprende-sobre-la-tortuga" class="slide-link" target="_blank">
+      <div class="slide">
+        <img src="images/post2.jpeg" alt="Slide 2">
+      </div>
+    </a>
+
+    <!-- Slide 3 -->
+    <a href="https://ejemplo.com/activa-estas-configuraciones" class="slide-link" target="_blank">
+      <div class="slide">
+        <img src="images/post3.jpeg" alt="Slide 3">
+      </div>
+    </a>
+  </div>
+</div>
+    <div class="pagination">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+    </div>
+  </div>
+
+  <!-- Sección "Para ti" -->
+  <div id="rotaciones" class="ecosystem-section">
+    <div class="logo-container">
+      <img src="images/icono.png" alt="Logo" class="logo" />
+    </div>
+    <h1 class="ecosystem-title">GUIAS Y ROTACIONES</h1>
+    <div class="ecosystem-image">
+      <img src="images/image1.jpeg" alt="Ecosystem Image" />
+    </div>
+    
+    <div class="post-details">
+      <div class="meta">
+        <span class="category">ROTACION CON KALEA</span>
+        <span class="separator">|</span>
+        <span class="date">20/3/2025</span>
+      </div>
+      <p class="description">
+          Aprende como rotar con kalea como un pro en mobile legends
+      </p>
+    </div>
+
+    <div class="ecosystem-image">
+      <img src="images/image1.jpeg" alt="Ecosystem Image" />
+    </div>
+
+    <div class="post-details">
+      <div class="meta">
+        <span class="category">ROTACION CON KALEA</span>
+        <span class="separator">|</span>
+        <span class="date">20/3/2025</span>
+      </div>
+      <p class="description">
+        Este es la rotacion con kalea espero que sea de tu agrado.
+      </p>
+    </div>
+
+    <div class="ecosystem-image">
+      <img src="images/image1.jpeg" alt="Ecosystem Image" />
+    </div>
+
+    <div class="post-details">
+      <div class="meta">
+        <span class="category">ROTACION CON KALEA</span>
+        <span class="separator">|</span>
+        <span class="date">20/3/2025</span>
+      </div>
+      <p class="description">
+        Este es la rotacion con kalea espero que sea de tu agrado.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sección "Rotaciones" -->
+  <div id="heroes" class="roles-section">
+    <!-- Ícono de "más" -->
+    <div class="expand-icon-roles">
+      +
+    </div>
+  
+    <!-- Contenedor principal de roles -->
+    <div class="roles-container">
+      <div class="role-item">
+        <img src="images/assessino.png" alt="Asesinos" class="role-icon" />
+        <p class="role-name">ASESINOS</p>
+      </div>
+      <div class="role-item">
+        <img src="images/tank.png" alt="Tanque" class="role-icon" />
+        <p class="role-name">TANQUE</p>
+      </div>
+      <div class="role-item">
+        <img src="images/mago.png" alt="Magos" class="role-icon" />
+        <p class="role-name">MAGOS</p>
+      </div>
+    </div>
+  
+    <!-- Menú emergente -->
+    <div class="dropdown-menu-roles hidden">
+      <ul>
+        <li><a href="#">COMBATIENTES</a></li>
+        <li><a href="#">APOYO</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sección "Heroes" -->
+  <div id="items" class="card-section">
+    <!-- Tarjeta PLAY -->
+    <div class="card card-play">
+      <img src="images/item1.jpeg" alt="Controller Icon" class="card-icon" />
+      <h2 class="card-title">PLAY</h2>
+      <p class="card-description">
+        Axies are tickets to an infinite ecosystem, granting access to new games and features upon release!
+      </p>
+    </div>
+
+    <!-- Tarjeta COLLECT -->
+    <div class="card card-collect">
+      <img src="images/item2.jpeg" alt="Collect Icon" class="card-icon" />
+      <h2 class="card-title">COLLECT</h2>
+      <p class="card-description">
+        Some Axies are rare with limited-edition body parts that will never be released again. Show off to your friends and family!
+      </p>
+    </div>
+  </div>
+
+ 
+  <div id="sobre-nosotros" class="footer-links">
+    <div class="links-container">
+      <!-- Columna izquierda -->
+      <div class="links-column">
+        <h3>sobre mi</h3>
+
+        <h3>elcabal_gaming</h3>
+        <ul>
+          <li><a href="#">Esto es una pagina</a></li>
+          <li><a href="#">Dirigida a los jugadores de mobile legends</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="links-column">
+        <h3>REDES SOCIALES</h3>
+        <ul>
+          <li><a href="#">TIKTOK</a></li>
+          <li><a href="#">YOUTUBE</a></li>
+          <li><a href="#">elcabal_gaming</a></li>
+        </ul>
+
+        <div class="social-icons">
+          <a href="#"><img src="discord_icon.png" alt="Discord" class="social-icon" /></a>
+          <a href="#"><img src="twitter_icon.png" alt="Twitter" class="social-icon" /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logotipo inferior -->
+    <div class="footer-logo">
+      <img src="images/icono.png" alt="Axie Infinity Logo" />
+    </div>
+  </div>
+
+ 
+
+  <script src="js/home.js"></script>
+</body>
+</html>
