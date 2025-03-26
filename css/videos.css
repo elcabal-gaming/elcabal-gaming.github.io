@@ -1,0 +1,577 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(0, 49, 105, 0.9); /* Gris muy oscuro, casi negro */
+    color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+    position: relative;
+  }
+  
+  .menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none; /* Oculto por defecto en pantallas grandes */
+  }
+  
+  .logo-centered {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .logo-centered span {
+    color: #ffcc00;
+  }
+  
+  .menu-dropdown {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .menu-dropdown ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .menu-dropdown a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+  }
+  
+  .menu-dropdown a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Menú Desplegable */
+  .menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  
+  .menu-dropdown ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  /* Main Content */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .video-player {
+    max-width: 800px; /* Reducimos el ancho máximo para PC */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 0 auto; /* Centrar el reproductor */
+    position: relative;
+  }
+  
+  /* Contenedor del Video */
+  .custom-video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Proporción de pantalla común (16:9) */
+    overflow: hidden;
+    border-radius: 12px; /* Bordes redondeados */
+    background-color: #000; /* Fondo oscuro mientras carga el video */
+  }
+  
+  /* Estilos del Video */
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Muestra TODO el video sin recortarlo */
+    border-radius: 12px; /* Bordes redondeados */
+    position: absolute; /* Centrado dentro del contenedor */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+  }
+  
+  /* Imagen de Portada */
+  .video-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10; /* Asegura que la portada esté sobre el video */
+  }
+  
+  .cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
+    border-radius: 12px; /* Bordes redondeados */
+  }
+  
+  /* Ocultar la imagen de portada cuando el video comienza */
+  .video-cover.hidden {
+    display: none;
+  }
+  
+  
+  
+  
+  
+  /* Estilo para la ventana modal */
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté sobre todo el contenido */
+  }
+  
+  .modal.hidden {
+    display: none; /* Clase para ocultar la ventana modal */
+  }
+  
+  .modal.visible {
+    display: flex; /* Clase para mostrar la ventana modal */
+  }
+  
+  /* Estilo para la ventana modal */
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Asegura que esté sobre todo el contenido */
+  }
+  
+  .modal.hidden {
+    display: none; /* Clase para ocultar la ventana modal */
+  }
+  
+  .modal.visible {
+    display: flex; /* Clase para mostrar la ventana modal */
+  }
+  
+  
+  /* Botón de Reproducción Personalizado */
+  .custom-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffcc00; /* Fondo amarillo */
+    border: none;
+    border-radius: 50%;
+    width: 50px; /* Tamaño reducido */
+    height: 50px; /* Tamaño reducido */
+    font-size: 1.2rem; /* Tamaño del ícono */
+    color: #ffffff; /* Color del ícono en blanco claro */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s ease; /* Transición suave para el halo */
+    z-index: 10;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8); /* Halo circular visible por defecto */
+  }
+  .custom-play-button:hover {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8); /* Halo más grande al pasar el cursor */
+  }
+  .video-info {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 800px; /* Alinear con el ancho del video */
+    margin: 0 auto; /* Centrar la información */
+  }
+  
+  .video-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .video-stats {
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    margin-top: 4rem; /* Agregamos margen superior para separar del contenido */
+  }
+  
+  .footer-links a {
+    color: #ffcc00;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #e6b800;
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu-icon {
+      display: block; /* Mostrar el ícono de hamburguesa en pantallas pequeñas */
+    }
+  
+    .menu-dropdown {
+      display: none; /* Ocultar el menú desplegable por defecto */
+    }
+  
+    .menu-dropdown.active {
+      display: flex; /* Mostrar el menú cuando esté activo */
+    }
+  
+    .header {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .logo-centered {
+      text-align: center;
+      flex-grow: 1;
+    }
+  
+    .video-player {
+      max-width: 100%; /* En móviles, el video ocupa todo el ancho */
+    }
+  }
+  
+  /* Botón de Telegram */
+  .telegram-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0088cc; /* Fondo azul */
+    color: #ffffff; /* Texto e ícono blanco */
+    text-decoration: none;
+    padding: 0.8rem 1.5rem; /* Espaciado interno ajustado */
+    border-radius: 8px; /* Bordes menos redondeados */
+    margin-top: 1rem; /* Espacio entre las estadísticas y el botón */
+    font-size: 1rem; /* Tamaño del texto */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    text-align: center; /* Centrar el texto */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    width: calc(100% - 2rem); /* Ancho casi completo con margen lateral */
+    max-width: 800px; /* Ancho máximo para evitar excesos en pantallas muy grandes */
+    margin-left: auto; /* Centrar horizontalmente */
+    margin-right: auto; /* Centrar horizontalmente */
+  }
+  
+  .telegram-button:hover {
+    background-color: #0077b3; /* Cambio de color al pasar el cursor */
+    transform: scale(1.02); /* Efecto de escala al pasar el cursor */
+  }
+  
+  .telegram-icon {
+    margin-right: 0.5rem; /* Espacio entre el ícono y el texto */
+    font-size: 1.2rem; /* Tamaño del ícono */
+  }
+  
+  .telegram-text {
+    font-weight: bold; /* Texto en negrita */
+    font-size: inherit; /* Hereda el tamaño del texto del botón */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .telegram-button {
+      padding: 0.6rem 1rem; /* Reducir el padding en pantallas pequeñas */
+      font-size: 0.9rem; /* Reducir el tamaño del texto */
+      width: calc(100% - 1rem); /* Ancho más compacto en móviles */
+    }
+  
+    .telegram-icon {
+      font-size: 1rem; /* Reducir el tamaño del ícono */
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .telegram-button {
+      padding: 0.7rem 1.2rem; /* Padding moderado para pantallas medianas */
+      font-size: 0.95rem; /* Tamaño del texto moderado */
+      width: calc(100% - 2rem); /* Ancho moderado para pantallas medianas */
+    }
+  
+    .telegram-icon {
+      font-size: 1.1rem; /* Tamaño del ícono moderado */
+    }
+  }
+  
+  @media (min-width: 1201px) {
+    .telegram-button {
+      padding: 0.8rem 1.5rem; /* Padding estándar para pantallas grandes */
+      font-size: 1rem; /* Tamaño del texto estándar */
+      width: calc(100% - 4rem); /* Ancho casi completo en pantallas grandes */
+    }
+  
+    .telegram-icon {
+      font-size: 1.2rem; /* Tamaño del ícono estándar */
+    }
+  }
+  
+  /* Contenedor del Texto "Imágenes" */
+  .image-text-container {
+    display: flex; /* Alineación horizontal */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    margin-top: 1rem; /* Espacio entre el botón de Telegram y este contenedor */
+    color: #ffffff; /* Color blanco para el texto e ícono */
+    font-size: 1rem; /* Tamaño del texto */
+    text-align: center; /* Asegura que el texto esté centrado */
+  }
+  
+  .image-icon {
+    margin-right: 0.5rem; /* Espacio entre el ícono y el texto */
+    font-size: 1.2rem; /* Tamaño del ícono */
+  }
+  
+  .image-text {
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  
+  /* Contenedor de Imágenes */
+  .image-gallery {
+    display: flex;
+    flex-direction: column; /* Alinear las imágenes una debajo de otra */
+    align-items: center; /* Centrar las imágenes horizontalmente */
+    margin-top: 1rem; /* Espacio entre el texto "Imágenes" y las imágenes */
+  }
+  
+  .gallery-image {
+    max-width: 100%; /* Ancho máximo responsivo */
+    height: auto; /* Mantener la proporción de aspecto */
+    margin-bottom: 1rem; /* Espacio entre las imágenes */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  }
+  
+  /* Placeholder para las imágenes */
+  .gallery-image {
+    max-width: 100%; /* Ancho máximo responsivo */
+    height: auto; /* Mantener la proporción de aspecto */
+    margin-bottom: 1rem; /* Espacio entre las imágenes */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    opacity: 0; /* Inicialmente ocultas */
+    transition: opacity 0.5s ease; /* Animación suave al aparecer */
+  }
+  .gallery-image.loaded {
+    opacity: 1; /* Visible cuando se carga */
+  }
+  
+  
+  
+  
+  
+  /* Estilo para centrar el anuncio */
+  .centered-ad {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Alinea verticalmente */
+    margin: 1rem auto; /* Espacio superior e inferior */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 800px; /* Limita el ancho máximo para pantallas grandes */
+  }
+  
+  .centered-ad ins {
+    display: block; /* Asegura que el anuncio sea tratado como un bloque */
+    margin: 0 auto; /* Centra el anuncio dentro del contenedor */
+    text-align: center; /* Asegura que el contenido interno esté centrado */
+    width: 300px; /* Ancho fijo del anuncio */
+    height: 100px; /* Altura fija del anuncio */
+  }
+
+
+
+
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    height: 60px;
+    background-color: #0f0f0f;
+    position: sticky; /* Fija el menÃº mientras se hace scroll */
+    top: 0; /* Lo mantiene en la parte superior de la ventana */
+    z-index: 1000; /* Asegura que estÃ© por encima de otros elementos */
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .epic-games-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  
+  
+  .fortnite-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .install-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #f5f3f3;
+    background-color: #003cff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .install-button:hover {
+    background-color: #00a8eb;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .menu-icon span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+  }
+
+
+/* Estilo del menÃº desplegable */
+.dropdown-menu {
+  display: none; /* Oculto inicialmente */
+  position: absolute;
+  top: 50px; /* PosiciÃ³n debajo del Ã­cono */
+  left: 0;
+  width: 100%;
+  background-color: #18191c; /* Fondo oscuro */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  z-index: 10; /* Asegura que estÃ© por encima de otros elementos */
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 1rem;
+  border-bottom: 1px solid #333; /* Separador entre opciones */
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none; /* Elimina el separador del Ãºltimo elemento */
+}
+
+.dropdown-menu a {
+  color: #fff; /* Texto blanco */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease; /* TransiciÃ³n suave para el color */
+}
+
+.dropdown-menu a:hover {
+  color: #00b7ff; /* Cambia el color al pasar el mouse */
+}
+
+/* Clase activa para mostrar el menÃº */
+.dropdown-menu.active {
+  display: block; /* Muestra el menÃº */
+}
+
+
+  .fortnite-text {
+    font-family: 'Luckiest Guy', cursive; /* Fuente nueva */
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+ /* Media Query para pantallas menores a 370x554 */
+@media (max-width: 370px) and (max-height: 554px) {
+  .fortnite-text {
+    font-size: 1.5rem; /* Ajustamos el tamaÃ±o de la fuente para que sea mÃ¡s pequeÃ±o */
+    visibility: hidden; /* Ocultamos todo el texto */
+  }
+
+  .fortnite-text::before {
+    content: "E"; /* Mostramos solo la letra "E" */
+    visibility: visible;
+    font-size: 1.5rem;
+  }
+}
