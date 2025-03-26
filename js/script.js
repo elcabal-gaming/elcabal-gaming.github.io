@@ -216,36 +216,4 @@ submenuItems.forEach((item) => {
 
 
 
-// Función para iniciar el arrastre
-function startDrag(e) {
-  // Deshabilitar el arrastre en pantallas grandes
-  if (window.innerWidth >= 769) return;
 
-  isDragging = true;
-  startX = e.pageX || e.touches[0].pageX; // Posición inicial del mouse/touch
-  startY = e.pageY || e.touches[0].pageY; // Posición inicial vertical
-  scrollLeft = slidesContainer.scrollLeft; // Posición inicial del scroll
-  slidesContainer.style.cursor = 'grabbing'; // Cambia el cursor
-
-  // Detectar si el movimiento inicial es vertical
-  document.addEventListener('touchmove', detectVerticalScroll);
-  function detectVerticalScroll(e) {
-    const deltaY = Math.abs((e.pageY || e.touches[0].pageY) - startY);
-    if (deltaY > 10) { // Umbral para detectar scroll vertical
-      isVerticalScroll = true;
-      stopDrag();
-    }
-  }
-}
-
-// Función para manejar el arrastre
-function drag(e) {
-  // Deshabilitar el arrastre en pantallas grandes
-  if (window.innerWidth >= 769) return;
-
-  if (!isDragging || isVerticalScroll) return; // Si no estamos arrastrando o es scroll vertical, salir
-  e.preventDefault();
-  const x = e.pageX || e.touches[0].pageX; // Posición actual del mouse/touch
-  const walk = (x - startX) * 2; // Distancia recorrida
-  slidesContainer.scrollLeft = scrollLeft - walk; // Actualiza el scroll
-}
