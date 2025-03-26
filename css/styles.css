@@ -241,22 +241,6 @@
   z-index: 3; /* Aseguramos que los puntos estén por encima del texto */
 }
 
-/* Media Query para pantallas grandes */
-@media (min-width: 769px) {
-  /* Asegurar que las imágenes ocupen todo el ancho del contenedor */
-  .slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Mantener la proporción de aspecto */
-  }
-
-  /* Ajustar el contenedor de slides para evitar desbordamientos */
-  .slides {
-    scroll-snap-type: none; /* Desactivar el scroll horizontal en pantallas grandes */
-    overflow-x: hidden; /* Ocultar el desplazamiento horizontal */
-  }
-}
-
 
 
 /* Estilos para la sección del ecosistema */
