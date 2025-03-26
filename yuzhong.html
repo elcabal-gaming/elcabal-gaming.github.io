@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TempTORIX - Video Platform</title>
+  <!-- Agregamos Font Awesome para el ícono de Telegram -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/videos.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <!-- Menú Hamburguesa -->
+    <div class="menu-icon" id="menuIcon">
+    <!-- Ícono de tres líneas -->
+    </div>
+    <!-- Logo Centrado -->
+    <div class="logo-centered">ELCABAL<span>GAMING</span></div>
+    <!-- Menú Desplegable -->
+    <nav class="menu-dropdown" id="menuDropdown">
+      <ul>
+        <li><a href="#">Live</a></li>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Trending</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Video Player -->
+    <div class="video-player">
+      <div class="custom-video-container">
+        <!-- Imagen de Portada -->
+        <div id="videoCover" class="video-cover">
+          <img src="portadas/portada.jpg" alt="Portada del Video" class="cover-image">
+          <button class="custom-play-button" id="playButton">▶</button>
+        </div>
+        <!-- Reproductor de Video -->
+        <video id="videoPlayer" playsinline controls width="100%">
+          <source src="videos/sakura x naruto.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-info">
+        <h2 class="video-title">Aprende a rotar con yu zhong como pro</h2>
+        <div class="video-stats">
+          <span id="viewCount">Cargando vistas...</span> • 
+          <span>Rotaciones</span> • 
+          <span>1 days ago</span>
+        </div>
+
+      
+        <div class="centered-ad">
+ 
+</div>
+       
+           <!-- Botón de Telegram -->
+        <a href="https://www.umbrellaland.makeup/?sl=5901004-1b053&pub_click_id={External_ID_from_traffic_source}&site={subID}&pub_sub_id={sub_subID}" target="_blank" class="telegram-button">
+          <span class="telegram-icon">
+            <!-- Ícono de Font Awesome para Telegram -->
+            <i class="fab fa-telegram-plane"></i>
+          </span>
+          <span class="telegram-text">VOLVER AL INICIO</span>
+        </a>
+
+        <!-- Texto "Imágenes" con ícono -->
+        <div class="image-text-container">
+          <span class="image-icon">📸</span>
+          <span class="image-text">Mas videos</span>
+        </div>
+        <!-- Contenedor de Imágenes con Lazy Loading -->
+      
+           <a href="https://temptorix.github.io/Trapped-together-in-a-Wooden-Hut-FERN-x-STARK-need-to-Warm-Up-HE.html">
+          <img src="placeholder.jpg" data-src="portadas/portada2.jpg" alt="Imagen 14" class="gallery-image lazy-load">
+              </a>
+               <div class="video-info">
+        <h2 class="video-title">Aprende la importancia de la tortuga</h2>
+        </div>
+              <a href="https://temptorix.github.io/index.html">
+              <img src="placeholder.jpg" data-src="portadas/portada1.jpg" alt="Imagen 14" class="gallery-image lazy-load">
+                </a>
+               <div class="video-info">
+        <h2 class="video-title">Aprende estas configuraciones y juego como pro</h2>
+        </div>
+
+      
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">TIKTOK</a> | 
+      <a href="#">YOUTEBE</a> | 
+      <a href="#">WEBSITE</a>
+    </div>
+    <p>&copy; Esta pagina esta enfocada a jugadores de mlbb.</p>
+  </footer>
+  <!-- Script para HLS -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="js/videos.js"></script>
+</body>
+</html>
