@@ -1,0 +1,583 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #fff;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    height: 60px;
+    background-color: #0f0f0f;
+    position: sticky; /* Fija el menú mientras se hace scroll */
+    top: 0; /* Lo mantiene en la parte superior de la ventana */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .epic-games-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  
+  
+  .fortnite-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .install-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #f5f3f3;
+    background-color: #003cff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .install-button:hover {
+    background-color: #00a8eb;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .menu-icon span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+  }
+
+
+/* Estilo del menú desplegable */
+.dropdown-menu {
+  display: none; /* Oculto inicialmente */
+  position: absolute;
+  top: 50px; /* Posición debajo del ícono */
+  left: 0;
+  width: 100%;
+  background-color: #18191c; /* Fondo oscuro */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 1rem;
+  border-bottom: 1px solid #333; /* Separador entre opciones */
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none; /* Elimina el separador del último elemento */
+}
+
+.dropdown-menu a {
+  color: #fff; /* Texto blanco */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.dropdown-menu a:hover {
+  color: #00b7ff; /* Cambia el color al pasar el mouse */
+}
+
+/* Clase activa para mostrar el menú */
+.dropdown-menu.active {
+  display: block; /* Muestra el menú */
+}
+
+
+  .fortnite-text {
+    font-family: 'Luckiest Guy', cursive; /* Fuente nueva */
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+ /* Media Query para pantallas menores a 370x554 */
+@media (max-width: 370px) and (max-height: 554px) {
+  .fortnite-text {
+    font-size: 1.5rem; /* Ajustamos el tamaño de la fuente para que sea más pequeño */
+    visibility: hidden; /* Ocultamos todo el texto */
+  }
+
+  .fortnite-text::before {
+    content: "E"; /* Mostramos solo la letra "E" */
+    visibility: visible;
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos generales para el submenú */
+.submenu {
+  background-color: #18191c; /* Fondo oscuro */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  overflow-x: auto; /* Permite desplazamiento horizontal si hay muchos elementos */
+  white-space: nowrap; /* Evita que los elementos se rompan en varias líneas */
+}
+
+.submenu-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem; /* Espacio entre elementos */
+}
+
+.submenu-item {
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Transición suave para el color */
+  flex-shrink: 0; /* Evita que los elementos se contraigan */
+}
+
+.submenu-item a {
+  color: #fff; /* Texto blanco */
+  text-decoration: none;
+  padding: 0.5rem 1rem; /* Espaciado alrededor del texto */
+  border-radius: 20px; /* Bordes redondeados */
+  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+}
+
+/* Hover effect */
+.submenu-item a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  color: #00b7ff; /* Cambia el color a azul brillante */
+}
+
+/* Efecto para el elemento activo */
+.submenu-item.active a {
+  color: #00b7ff; /* Color azul brillante */
+  background-color: rgba(0, 183, 255, 0.2); /* Fondo azul semi-transparente */
+  border-radius: 20px; /* Bordes redondeados */
+}
+
+
+
+/* Estilos generales para el slider */
+.image-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    scroll-snap-type: x mandatory; /* Asegura que los slides se alineen correctamente */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en dispositivos iOS */
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en navegadores modernos */
+}
+
+.slides::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en navegadores basados en WebKit */
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.slide:not(.active) {
+  display: none;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 1rem; /* Ajustamos la posición para que quede visible */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 3; /* Aseguramos que los puntos estén por encima del texto */
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #FFD700; /* Amarillo brillante */
+}
+
+
+
+/* Estilos para la sección del ecosistema */
+.ecosystem-section {
+  background-color: #000050; /* Fondo oscuro similar al de la imagen */
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+}
+
+.logo {
+  width: 100px; /* Ajusta el tamaño del logotipo según sea necesario */
+  height: auto;
+}
+
+.ecosystem-title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2.5rem;
+  color: #87CEEB; /* Azul claro similar al de la imagen */
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2rem
+  
+}
+
+.ecosystem-image {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #00bfff; /* Borde azul brillante */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 0rem;
+}
+
+.ecosystem-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* Estilos para los detalles del post */
+.post-details {
+  margin-top: 1rem; /* Espacio entre la imagen y los detalles */
+  text-align: left; /* Alineación a la izquierda */
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espaciado entre categoría y fecha */
+  font-size: 1rem;
+  color: #e6ff02; /* Color gris oscuro */
+}
+
+.category {
+  color: #d4af37; /* Amarillo dorado */
+  font-weight: bold;
+}
+
+.separator {
+  color: #d4af37; /* Amarillo dorado */
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #878787; /* Gris claro */
+}
+
+
+
+.description {
+  margin-top: 1rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+  color: #00cedd; /* Gris medio */
+  margin-bottom: 3rem;
+}
+
+
+
+
+/* Estilos para la sección de roles */
+.roles-section {
+  background-color: rgba(0, 102, 255, 0.8); /* Azul vibrante con transparencia */
+  padding: 2rem;
+  position: relative; /* Para posicionar el ícono y el menú emergente */
+}
+
+.expand-icon-roles {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333; /* Color oscuro para el ícono */
+  cursor: pointer;
+  z-index: 3; /* Asegura que el ícono esté por encima del fondo */
+}
+
+.roles-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas si es necesario */
+}
+
+.role-item {
+  text-align: center;
+  margin: 1rem; /* Espaciado entre los roles */
+}
+
+.role-icon {
+  width: 50px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.role-name {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000; /* Negro oscuro */
+}
+
+.dropdown-menu-roles {
+  display: none; /* Oculto inicialmente */
+  position: absolute;
+  top: 50px; /* Posición debajo del ícono */
+  left: 0;
+  width: 200px; /* Ancho del menú */
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  z-index: 2; /* Asegura que esté por encima del contenido principal */
+}
+
+.dropdown-menu-roles ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu-roles li {
+  padding: 1rem;
+  border-bottom: 1px solid #333; /* Separador entre opciones */
+}
+
+.dropdown-menu-roles li:last-child {
+  border-bottom: none; /* Elimina el separador del último elemento */
+}
+
+.dropdown-menu-roles a {
+  color: #fff; /* Texto blanco */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Transición suave para el color */
+}
+
+.dropdown-menu-roles a:hover {
+  color: #00b7ff; /* Cambia el color al pasar el mouse */
+}
+
+.hidden {
+  display: none; /* Oculta el menú emergente inicialmente */
+}
+
+.active {
+  display: block; /* Muestra el menú emergente */
+}
+
+
+
+/* Estilos generales para la sección de tarjetas */
+.card-section {
+  background-color: #000050; /* Fondo azul oscuro similar al de la imagen */
+  padding: 2rem;
+}
+
+/* Estilos generales para las tarjetas */
+.card {
+  background-color: #000050; /* Fondo azul oscuro */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espaciado entre elementos dentro de la tarjeta */
+  margin-bottom: 2rem;
+}
+
+.card-icon {
+  width: 50px;
+  height: auto;
+  margin-right: 1rem;
+  float: left;
+}
+
+.card-title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 2.5rem;
+  color: #87CEEB; /* Azul claro similar al de la imagen */
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.card-description {
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6; /* Altura de línea para mejorar la legibilidad */
+  color: #87CEEB; /* Azul claro */
+  margin-top: 1rem;
+}
+
+/* Estilo específico para la tarjeta PLAY */
+.card-play {
+  border: 2px solid #00bfff; /* Borde azul brillante */
+}
+
+.card-play .card-title {
+  color: #00bfff; /* Azul brillante */
+}
+
+/* Estilo específico para la tarjeta COLLECT */
+.card-collect {
+  border: 2px solid #d4af37; /* Amarillo dorado */
+}
+
+.card-collect .card-title {
+  color: #d4af37; /* Amarillo dorado */
+}
+
+
+
+/* Estilos generales para la sección de enlaces */
+.footer-links {
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px; /* Ajusta el ancho máximo */
+}
+
+.links-column {
+  width: 45%; /* Ancho de cada columna */
+}
+
+.links-column h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.links-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-column li {
+  margin-bottom: 0.5rem;
+}
+
+.links-column a {
+  text-decoration: none;
+  color: #fff; /* Texto blanco */
+  transition: color 0.3s ease;
+}
+
+.links-column a:hover {
+  color: #00b7ff; /* Azul brillante al pasar el mouse */
+}
+
+.links-column .active {
+  border-bottom: 2px solid #00b7ff; /* Subrayado azul brillante para el enlace activo */
+}
+
+/* Estilos para los iconos de redes sociales */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0rem;
+}
+
+.social-icon {
+  width: 30px;
+  height: auto;
+}
+
+/* Estilo para el logotipo inferior */
+.footer-logo {
+  margin-top: 0rem;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 200px;
+  height: auto;
+}
+
+
+
+/* Estilo para los enlaces de los slides */
+.slide-link {
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: inherit; /* Hereda el color del texto */
+  display: block; /* Hace que el enlace ocupe todo el espacio del slide */
+}
+
+.slide-link:hover {
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
