@@ -141,6 +141,35 @@
 .video-cover.hidden {
   display: none;
 }
+
+
+
+
+let player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtubePlayer', {
+    height: '315',
+    width: '100%',
+    videoId: 'F0HWl4oNx1Q', // ID del video de YouTube
+    playerVars: {
+      autoplay: 0,
+      controls: 1,
+      modestbranding: 1,
+      rel: 0,
+      showinfo: 0,
+    },
+    events: {
+      onReady: onPlayerReady,
+    },
+  });
+}
+
+function onPlayerReady(event) {
+  console.log('Reproductor de YouTube listo');
+}
+
+
   
   
   
