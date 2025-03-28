@@ -1,13 +1,28 @@
-// Toggle Menu Dropdown
-document.getElementById('menuIcon').addEventListener('click', function () {
-  const menuDropdown = document.getElementById('menuDropdown');
-  menuDropdown.classList.toggle('active');
-});
-
 // Variables Globales
-const videoPlayer = document.getElementById('videoPlayer');
-const videoCover = document.getElementById('videoCover');
-const playButton = document.getElementById('playButton');
+const videoPlayer = document.getElementById('videoPlayer'); // Referencia al iframe de YouTube
+const videoCover = document.getElementById('videoCover'); // Referencia a la imagen de portada
+const playButton = document.getElementById('playButton'); // Referencia al botón de reproducción
+
+// Función para reproducir el video y ocultar la portada
+function playVideo() {
+  if (videoCover) {
+    videoCover.classList.add('hidden'); // Oculta la imagen de portada
+  }
+}
+
+// Evento para el botón de reproducción
+if (playButton) {
+  playButton.addEventListener('click', () => {
+    playVideo(); // Llama a la función para ocultar la portada
+  });
+}
+
+// Evento para la imagen de portada (opcional)
+if (videoCover) {
+  videoCover.addEventListener('click', () => {
+    playVideo(); // Llama a la función para ocultar la portada
+  });
+}
 
 // Configuración de JSONBin.io
 const BIN_URL = "https://api.jsonbin.io/v3/b/67c486b5acd3cb34a8f3abd9"; // URL del bin
@@ -83,18 +98,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       await handleVideoPlay();
       hasIncrementedVisits = true; // Marcar como incrementado
     }
-  });
-
-  // Reproducir el video al hacer clic en el botón de reproducción
-  playButton.addEventListener("click", () => {
-    videoPlayer.play();
-    videoCover.classList.add("hidden"); // Ocultar la imagen de portada
-  });
-
-  // Reproducir el video al hacer clic en la imagen de portada
-  videoCover.addEventListener("click", () => {
-    videoPlayer.play();
-    videoCover.classList.add("hidden"); // Ocultar la imagen de portada
   });
 });
 
