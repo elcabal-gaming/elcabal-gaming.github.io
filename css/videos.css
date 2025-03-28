@@ -135,38 +135,16 @@
     object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
     border-radius: 12px; /* Bordes redondeados */
   }
-
   
-  /* Clase para ocultar la imagen de portada */
-.video-cover.hidden {
-  display: none;
-}
-
-
-
-
-
-.custom-video-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px; /* Ancho máximo para pantallas grandes */
-  aspect-ratio: 16 / 9; /* Proporción de pantalla común (16:9) */
-  margin: 0 auto; /* Centrar horizontalmente */
-  overflow: hidden;
-  border-radius: 12px; /* Bordes redondeados */
-  background-color: #000; /* Fondo oscuro mientras carga el video */
-}
-
-iframe#youtubePlayer {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-
-
-
-
+  /* Ocultar la imagen de portada cuando el video comienza */
+  .video-cover.hidden {
+    display: none;
+  }
+  
+  
+  
+  
+  
   /* Estilo para la ventana modal */
   .modal {
     display: none; /* Oculto por defecto */
