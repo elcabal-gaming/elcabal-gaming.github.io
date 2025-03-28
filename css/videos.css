@@ -135,11 +135,12 @@
     object-fit: cover; /* Asegura que la imagen cubra completamente el contenedor */
     border-radius: 12px; /* Bordes redondeados */
   }
+
   
-  /* Ocultar la imagen de portada cuando el video comienza */
-  .video-cover.hidden {
-    display: none;
-  }
+  /* Clase para ocultar la imagen de portada */
+.video-cover.hidden {
+  display: none;
+}
   
   
   
