@@ -1,10 +1,37 @@
 // Variables Globales
-const videoPlayer = document.getElementById('videoPlayer'); // Referencia al iframe de YouTube
+let player; // Variable global para el reproductor de YouTube
 const videoCover = document.getElementById('videoCover'); // Referencia a la imagen de portada
 const playButton = document.getElementById('playButton'); // Referencia al botón de reproducción
 
+// Función para inicializar el reproductor de YouTube
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('youtubePlayer', {
+    height: '315',
+    width: '100%',
+    videoId: 'F0HWl4oNx1Q', // ID del video de YouTube
+    playerVars: {
+      autoplay: 0, // No reproducir automáticamente al cargar
+      controls: 1, // Mostrar controles del reproductor
+      modestbranding: 1, // Ocultar logo de YouTube
+      rel: 0, // No mostrar videos relacionados al final
+      showinfo: 0, // Ocultar información del video
+    },
+    events: {
+      onReady: onPlayerReady, // Evento cuando el reproductor está listo
+    },
+  });
+}
+
+// Función que se ejecuta cuando el reproductor está listo
+function onPlayerReady(event) {
+  console.log('Reproductor de YouTube listo');
+}
+
 // Función para reproducir el video y ocultar la portada
 function playVideo() {
+  if (player && player.playVideo) {
+    player.playVideo(); // Reproduce el video
+  }
   if (videoCover) {
     videoCover.classList.add('hidden'); // Oculta la imagen de portada
   }
@@ -13,14 +40,14 @@ function playVideo() {
 // Evento para el botón de reproducción
 if (playButton) {
   playButton.addEventListener('click', () => {
-    playVideo(); // Llama a la función para ocultar la portada
+    playVideo(); // Llama a la función para reproducir el video
   });
 }
 
 // Evento para la imagen de portada (opcional)
 if (videoCover) {
   videoCover.addEventListener('click', () => {
-    playVideo(); // Llama a la función para ocultar la portada
+    playVideo(); // Llama a la función para reproducir el video
   });
 }
 
