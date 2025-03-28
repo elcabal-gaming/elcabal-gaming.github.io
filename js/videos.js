@@ -113,19 +113,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Asegurarse de que las visitas solo se incrementen una vez por sesión
   let hasIncrementedVisits = false;
 
-  playButton.addEventListener("click", async () => {
-    if (!hasIncrementedVisits) {
-      await handleVideoPlay();
-      hasIncrementedVisits = true; // Marcar como incrementado
-    }
-  });
+  if (playButton) {
+    playButton.addEventListener("click", async () => {
+      if (!hasIncrementedVisits) {
+        await handleVideoPlay();
+        hasIncrementedVisits = true; // Marcar como incrementado
+      }
+    });
+  }
 
-  videoCover.addEventListener("click", async () => {
-    if (!hasIncrementedVisits) {
-      await handleVideoPlay();
-      hasIncrementedVisits = true; // Marcar como incrementado
-    }
-  });
+  if (videoCover) {
+    videoCover.addEventListener("click", async () => {
+      if (!hasIncrementedVisits) {
+        await handleVideoPlay();
+        hasIncrementedVisits = true; // Marcar como incrementado
+      }
+    });
+  }
 });
 
 // Lazy Loading para Imágenes
